@@ -1,0 +1,27 @@
+@import "./quasar.variables.scss";
+
+body.body--light {
+  .main-input {
+    .q-field__control {
+      &:before {
+        border: 1px solid $accent !important;
+      }
+
+      &:after {
+        border: none !important;
+      }
+    }
+
+    .q-field__native {
+      color: $dark;
+    }
+  }
+}
+
+body.body--dark {
+  .main-input {
+    .q-field__native {
+      color: $light-mode;
+    }
+  }
+}

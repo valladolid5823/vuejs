@@ -1,0 +1,19 @@
+@import "./quasar.variables.scss";
+
+body.body--light {
+}
+
+body.body--dark {
+  background: $dark-mode;
+  color: white;
+
+  &.bg-white,
+  .bg-primary,
+  .bg-secondary {
+    background-color: $dark-mode !important;
+  }
+
+  .text-dark {
+    color: white !important;
+  }
+}
