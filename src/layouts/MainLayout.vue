@@ -1,34 +1,16 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated class="bg-primary">
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          class="text-dark"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title class="text-dark"> Vuejs </q-toolbar-title>
-        <div>
-          <q-icon
-            @click="toggleDarkMode"
-            :name="$q.dark.isActive ? 'dark_mode' : 'light_mode'"
-            class="text-dark cursor-pointer"
-            size="sm"
-          >
-            <q-tooltip class="text-no-wrap">
-              Mode: {{ $q.dark.isActive ? "Dark" : "Light" }}
-            </q-tooltip>
-          </q-icon>
-        </div>
-      </q-toolbar>
-    </q-header>
-
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
+      <div class="q-px-md text-riht">
+        <q-toggle
+          label="Dark Mode"
+          left-label
+          v-model="value"
+          @update:model-value="toggleDarkMode()"
+          color="grey"
+          class="q-ml-xs"
+        />
+      </div>
       <q-list class="q-mt-xl">
         <EssentialLink
           v-for="link in essentialLinks"
@@ -89,6 +71,7 @@ export default defineComponent({
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },
       toggleDarkMode,
+      value: ref(false),
     };
   },
 });
